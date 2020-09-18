@@ -10,7 +10,7 @@ const BASE_URL = 'https://sds1-lhgoulart.herokuapp.com';
 
 const Records = () =>{
 
-    const [RecordsResponse, setRecordsResponse] = useState<RecordsResponse>();
+    const [recordsResponse, setRecordsResponse] = useState<RecordsResponse>();
     const [activePage, setActivePage] = useState(0);
 
 
@@ -38,7 +38,7 @@ const Records = () =>{
                     </tr>
                 </thead>
                 <tbody>
-                    {RecordsResponse?.content.map(record => (
+                    {recordsResponse?.content.map(record => (
                         <tr key={record.id}>
                             <td>{formatDate(record.moment)}</td>
                             <td>{record.name}</td>
@@ -52,7 +52,7 @@ const Records = () =>{
             </table>
             <Pagination 
                 activePage={activePage}
-                totalPages={RecordsResponse?.totalPages}
+                totalPages={recordsResponse?.totalPages}
                 goToPage={handlePageChange}
             />
             
